@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MondeCom</title>
+<style>
+body{margin:0;font-family:Arial;background:#f0f2f5;color:#222}
+header{background:#1877e8;color:white;padding:18px;font-size:25px;font-weight:bold}
+nav{display:flex;justify-content:space-around;background:white;padding:15px 3px;position:sticky;top:0}
+nav a{color:#1877e8;text-decoration:none;font-weight:bold;font-size:13px}
+main{max-width:600px;margin:auto;padding:12px}
+.card{background:white;border-radius:12px;padding:15px;margin-bottom:14px}
+textarea{width:100%;box-sizing:border-box;border:1px solid #ddd;border-radius:8px;padding:12px;resize:vertical}
+button{background:#1877e8;color:white;border:0;border-radius:8px;padding:10px 15px;margin-top:8px}
+.post{padding:14px 0;border-top:1px solid #eee}
+</style>
+</head>
+<body>
+<header>🌍 MondeCom</header>
+<nav>
+<a href="#accueil">Accueil</a>
+<a href="#amis">Amis</a>
+<a href="#messages">Messages</a>
+<a href="#notifications">Notifications</a>
+</nav>
+<main>
+<section class="card" id="accueil">
+<h3>Quoi de neuf aujourd'hui ?</h3>
+<textarea id="publication" placeholder="Partagez vos idées..."></textarea>
+<button onclick="publier()">Publier</button>
+</section>
+<section class="card">
+<h3>Fil d'actualité</h3>
+<div id="fil">
+<p>Bienvenue sur MondeCom ! 🌍</p>
+</div>
+</section>
+<section class="card" id="amis"><h3>👥 Amis</h3><p>Retrouvez votre communauté.</p></section>
+<section class="card" id="messages"><h3>💬 Messages</h3><p>Votre messagerie MondeCom.</p></section>
+<section class="card" id="notifications"><h3>🔔 Notifications</h3><p>Vos nouvelles alertes.</p></section>
+</main>
+<script>
+function publier(){
+const champ=document.getElementById('publication');
+const texte=champ.value.trim();
+if(!texte)return;
+const p=document.createElement('div');
+p.className='post';
+p.textContent='👤 Vous : '+texte;
+document.getElementById('fil').prepend(p);
+champ.value='';
+}
+</script>
+</body>
+</html>
